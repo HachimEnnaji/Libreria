@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Libreria
 {
@@ -23,7 +22,6 @@ namespace Libreria
                 adapter.Fill(dataTable);
 
                 GridView1.DataSource = dataTable;
-
                 GridView1.DataBind();
 
             }
@@ -35,20 +33,9 @@ namespace Libreria
 
         }
 
-        protected void GridView1_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void btnAction_Click(object sender, EventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                int index = 4;
-                string imagePath = e.Row.Cells[index].Text;
-                Image img = new Image();
-                img.ImageUrl = imagePath;
-
-                img.Height = 150;
-
-                e.Row.Cells[index].Controls.Add(img);
-
-            }
+            Response.Write("CISAO");
         }
     }
 }
